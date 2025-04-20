@@ -81,6 +81,7 @@ nav:
     - Report Issues: https://github.com/alokjnu/geojnu/issues
     - Examples:
         - examples/intro.ipynb
+        - examples/map.ipynb
     - API Reference:
           - geojnu module: geojnu.md
           - common module: common.md
