@@ -1,4 +1,0 @@
-
-# geojnu module
-
-::: geojnu.geojnu
