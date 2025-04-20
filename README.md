@@ -10,7 +10,7 @@
 
 -   Free software: MIT License
 -   Documentation: https://alokjnu.github.io/geojnu
-    
+
 
 ## Features
 
