@@ -82,6 +82,7 @@ nav:
     - Examples:
         - examples/intro.ipynb
         - examples/map.ipynb
+        - examples/foliummap.ipynb
     - API Reference:
           - geojnu module: geojnu.md
           - common module: common.md
