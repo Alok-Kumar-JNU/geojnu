@@ -135,12 +135,12 @@ class map(ipyleaflet.Map):
             raise ValueError("data must be a file path or a GeoDataFrame or a dict")
 
     def add_raster(self, data, **kwargs):
-        
+
         from localtileserver import TileClient, get_leaflet_tile_layer
-        
+
         client = TileClient(data)
         tile_layer = get_leaflet_tile_layer(client, **kwargs)
-       
+
         self.add_layer(tile_layer)
-        self.center= client.center()
-        self.zoom= client.default_zoom
+        self.center = client.center()
+        self.zoom = client.default_zoom
