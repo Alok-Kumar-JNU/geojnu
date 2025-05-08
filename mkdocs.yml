@@ -85,3 +85,4 @@ nav:
     - API Reference:
           - geojnu module: geojnu.md
           - common module: common.md
+          - foliummap module: foliummap.md
