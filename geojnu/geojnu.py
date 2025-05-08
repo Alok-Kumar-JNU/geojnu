@@ -40,43 +40,43 @@ class map(ipyleaflet.Map):
         layer = ipyleaflet.TileLayer(url=url, name="Google Map", attribution="Google")
         self.add_layer(layer)
 
-    def add_geojson(self, data,zoom_to_layer=True,hover_style=None, **kwargs):
+    def add_geojson(self, data, zoom_to_layer=True, hover_style=None, **kwargs):
         import geopandas as gpd
-        
+
         if hover_style is None:
-            hover_style={"color": "white", "dashArray": "0", "fillOpacity": 0.5}
-        
-        if isinstance(data, str):    
-            gdf=gpd.read_file(data)
+            hover_style = {"color": "white", "dashArray": "0", "fillOpacity": 0.5}
+
+        if isinstance(data, str):
+            gdf = gpd.read_file(data)
             geojson = gdf.__geo_interface__
         elif isinstance(data, dict):
             geojson = data
-        layer = ipyleaflet.GeoJSON(data=geojson,hover_style=hover_style, **kwargs)
+        layer = ipyleaflet.GeoJSON(data=geojson, hover_style=hover_style, **kwargs)
         self.add_layer(layer)
-        
+
         if zoom_to_layer:
-            bounds=gdf.total_bounds
+            bounds = gdf.total_bounds
             self.fit_bounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]])
 
     def add_shp(self, data, **kwargs):
         import geopandas as gpd
-         
-        gdf=gpd.read_file(data)
-        gdf= gdf.to_crs(epsg=4326)
-        geojson = gdf.__geo_interface__
-        self.add_geojson(geojson, **kwargs)    
-        
-    def add_gdf(self,gdf, **kwargs):
-        
-        gdf= gdf.to_crs(epsg=4326)   
+
+        gdf = gpd.read_file(data)
+        gdf = gdf.to_crs(epsg=4326)
         geojson = gdf.__geo_interface__
         self.add_geojson(geojson, **kwargs)
-        
+
+    def add_gdf(self, gdf, **kwargs):
+
+        gdf = gdf.to_crs(epsg=4326)
+        geojson = gdf.__geo_interface__
+        self.add_geojson(geojson, **kwargs)
+
     def add_vector(self, data, **kwargs):
         import geopandas as gpd
-        
-        if isinstance(data, str):  
-            gdf=gpd.read_file(data)
+
+        if isinstance(data, str):
+            gdf = gpd.read_file(data)
             self.add_gdf(gdf, **kwargs)
         elif isinstance(data, gpd.GeoDataFrame):
             self.add_gdf(data, **kwargs)
