@@ -115,7 +115,7 @@ class map(ipyleaflet.Map):
         """Adds a vector layer to the map.
 
         Args:
-            data (str, geopandas.GeoDataFrame, or dict): The vector data to add. Can be a file path, 
+            data (str, geopandas.GeoDataFrame, or dict): The vector data to add. Can be a file path,
                 a GeoDataFrame, or a GeoJSON dictionary.
             **kwargs: Additional keyword arguments passed to the add_geojson or add_gdf method.
 
