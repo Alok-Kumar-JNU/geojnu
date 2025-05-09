@@ -2,7 +2,6 @@
 
 import os
 import ipyleaflet
-import localtileserver
 
 
 class map(ipyleaflet.Map):
