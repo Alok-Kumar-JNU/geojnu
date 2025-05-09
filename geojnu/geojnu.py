@@ -2,6 +2,7 @@
 
 import os
 import ipyleaflet
+import localtileserver
 
 
 class map(ipyleaflet.Map):
@@ -133,3 +134,15 @@ class map(ipyleaflet.Map):
             self.add_geojson(data, **kwargs)
         else:
             raise ValueError("data must be a file path or a GeoDataFrame or a dict")
+        
+    def add_raster(self, filepath, **kwargs):
+
+        from localtileserver import TileClient, get_leaflet_tile_layer
+
+        client = TileClient(filepath)
+        tile_layer = get_leaflet_tile_layer(client, **kwargs)
+
+        self.add(tile_layer)
+        self.center = client.center()
+        self.zoom = client.default_zoom
+
