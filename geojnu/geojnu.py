@@ -134,7 +134,7 @@ class map(ipyleaflet.Map):
             self.add_geojson(data, **kwargs)
         else:
             raise ValueError("data must be a file path or a GeoDataFrame or a dict")
-        
+
     def add_raster(self, filepath, **kwargs):
 
         from localtileserver import TileClient, get_leaflet_tile_layer
@@ -145,4 +145,3 @@ class map(ipyleaflet.Map):
         self.add(tile_layer)
         self.center = client.center()
         self.zoom = client.default_zoom
-
