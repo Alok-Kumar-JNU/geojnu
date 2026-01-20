@@ -2,7 +2,6 @@
 
 """Tests for `geojnu` package."""
 
-
 import unittest
 
 from geojnu import geojnu
